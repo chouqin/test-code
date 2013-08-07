@@ -25,12 +25,16 @@
 //
 
 //test new class with name
-class Test {
-  public function a() {
-    print "hello world\n";
-  }
-}
+//class Test {
+  //public function a() {
+    //print "hello world\n";
+  //}
+//}
 
-$var = "Test";
-$t = new $var();
-$t->a();
+//$var = "Test";
+//$t = new $var();
+//$t->a();
+//
+
+$a = array(1, 2, 3, 4);
+var_dump($a[-1]);

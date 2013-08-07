@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set('UTC');
+//date_default_timezone_set('UTC');
 //$day = '2012-09-03';
 //$day = date('Y-m-d', strtotime('-1 day', strtotime($day1)));
 //if ($day == monday)
@@ -43,4 +43,6 @@ function get_first_day_month($month)
 
 $month = "2012-01";
 $first_day = get_first_day_month($month);
-echo "first day of $month is $first_day \n";
+//echo "first day of $month is $first_day \n";
+//
+var_dump(date('Y-m-d H:i:s', strtotime("2013-02-04_22:4")));
