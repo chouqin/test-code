@@ -1,0 +1,32 @@
+digraph G {
+    //compound=true;
+    subgraph cluster0 {
+        a -- b;
+        //a -- c;
+        //b -- c;
+        //c -- d;
+        //d -- e;
+        //d -- f;
+        //e -- f;
+    }
+    subgraph cluster1 {
+        ab[label="a, b"];
+        //c -- d;
+        //d -- e;
+        //d -- f;
+        //e -- f;
+    }
+    subgraph cluster2 {
+        ab2[label="a, b"];
+        de[label="d, e"];
+        c;
+        f;
+    }
+    //cluster0 -> cluster1;
+    //b -> f [lhead=cluster1];
+    //d -> e;
+    //c -> g [ltail=cluster0,
+      //lhead=cluster1];
+    //c -> e [ltail=cluster0];
+    //d -> h;
+}
