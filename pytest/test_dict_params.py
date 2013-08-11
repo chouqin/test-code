@@ -25,3 +25,7 @@ if __name__ == "__main__":
     foo1(1, 2)
     foo1(*l)
     bar1(*l)
+
+    # error case
+    #bar(d)
+    #foo(1, 2)
