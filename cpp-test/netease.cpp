@@ -1,22 +1,27 @@
 #include <iostream>
 
 //test function overload
-//int foo(int * a)
+void foo(const int * a)
+{
+    std::cout << "call foo" << std::endl;
+}
+
+//void g(int i)
 //{
-    //std::cout << "call foo" << std::endl;
+    //foo(i);
 //}
 
-//void foo(double )
-//{
-    //std::cout << "call foo 2" << std::endl;
-//}
+void foo(double )
+{
+    std::cout << "call foo 2" << std::endl;
+}
 
-//int main()
-//{
-    //foo(0);
+int main()
+{
+    foo(NULL); //会出现错误，因为从NULL到int*的转换和从0到double的等级转换一样的
 
-    //return 0;
-//}
+    return 0;
+}
 
 // still error: call foo(0) is ambiguous(compile)
 //
@@ -48,19 +53,19 @@
 //test char '\0'
 //
 
-void foo(const char * p)
-//non-const pointer to const pointer: no warning
-//const ==> non-const has warning
-{
-    std::cout << p[5] << std::endl;
-}
+//void foo(const char * p)
+////non-const pointer to const pointer: no warning
+////const ==> non-const has warning
+//{
+    //std::cout << p[5] << std::endl;
+//}
 
-int main()
-{
-    const char *p = "12345";
-    //char *p = "12345"; //string constant to 'char *' has warning
-    foo(p);
-    //std::cout << '\0' << std::endl;
+//int main()
+//{
+    //const char *p = "12345";
+    ////char *p = "12345"; //string constant to 'char *' has warning
+    //foo(p);
+    ////std::cout << '\0' << std::endl;
 
-    return 0;
-}
+    //return 0;
+//}
