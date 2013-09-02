@@ -6,9 +6,8 @@ import re
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.exc import IntegrityError
 
 import json
 
@@ -16,7 +15,9 @@ Base = declarative_base()
 class Question(Base):
     __tablename__ = 'question'
 
-    name = Column(String, primary_key=True)
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
     options = Column(String)
     answer = Column(String)
 
@@ -49,14 +50,14 @@ def retryOnURLError(trycnt=3):
     return funcwrapper
 
 
-engine = create_engine("mysql://root:baixing@localhost/safe_test?charset=utf8", encoding='utf-8')
+engine = create_engine("mysql://root:mysqlpassw0rd@localhost/safe-test?charset=utf8", encoding='utf-8')
 Session = sessionmaker(bind=engine)
 session = Session()
 
 p = re.compile(r'^[0-9]+、\s*(?P<question>.+)$', re.UNICODE)
 
 types = [
-    #(1436, 77), # 题库编号，一共页数
+    (1436, 77), # 题库编号，一共页数
     (1485, 19),
     (1467, 37),
     (1471, 82),
@@ -105,10 +106,10 @@ for t, max_page in types:
                 print html
                 exit(0)
 
-            que = session.query(Question).get(question)
-            if que:
-                print que
-                continue
+            #que = session.query(Question).get(question)
+            #if que:
+                #print que
+                #continue
                 #_os = json.loads(question.options)
                 #question.options = json_dumps(_os + json.loads(os))
 
@@ -117,8 +118,6 @@ for t, max_page in types:
 
         try:
             session.commit()
-        except IntegrityError as e:
-            print e
         except Exception as e:
             session.rollback()
             print page

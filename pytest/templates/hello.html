@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <title>安全测试</title>
+</head>
+
+<body>
+    <form action="/" method="POST">
+        问题: <input type="text" name="question" value="{{ title }}"></input>
+                <input type="submit" value="提交" />
+    </form>
+    <ul>
+    {% for question in questions %}
+    <li>
+    <ul>
+        {% for option in question[0] %}
+        <li>{{ option }}</li>
+        {% endfor %}
+    </ul>
+    <p>{{ question[1] }}</p>
+    </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
