@@ -56,7 +56,12 @@ session = Session()
 p = re.compile(r'^[0-9]+、\s*(?P<question>.+)$', re.UNICODE)
 
 types = [
-    (1436, 77), # 题库编号，一共页数
+    #(1436, 77), # 题库编号，一共页数
+    (1485, 19),
+    (1467, 37),
+    (1471, 82),
+    (1484, 27),
+    (1486, 12),
 ]
 
 fetchfn = retryOnURLError()(fetcher)
