@@ -1,0 +1,174 @@
+%%% LaTeX Template: Curriculum Vitae
+%%%
+%%% Source: http://www.howtotex.com/
+%%% Feel free to distribute this template, but please keep the referal to HowToTeX.com.
+%%% Date: July 2011
+
+%%% ------------------------------------------------------------
+%%% BEGIN PREAMBLE
+%%% ------------------------------------------------------------
+\documentclass[paper=a4,fontsize=11pt]{scrartcl}	 			% KOMA-article class
+
+%\usepackage[english]{babel}								% English language/hyphenation
+%\usepackage[protrusion=true,expansion=true]{microtype}		% Better typography
+\usepackage{amsmath,amsfonts,amsthm}					% Math packages
+%\usepackage[pdftex]{graphicx}								% Enable pdflatex
+\usepackage[svgnames]{xcolor}							% Colors by their 'svgnames'
+%\usepackage{geometry}
+	%\textheight=700px									% Saving trees ;-)
+\usepackage{url}										% Clickable URL's
+%\usepackage{wrapfig}									% Wrap text along figures
+
+\frenchspacing									% Better looking spacings after periods
+\pagestyle{empty}								% No pagenumbers/headers/footers
+%\usepackage{bbding}									% Symbols
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}							% Custom sectioning (see below)
+\usepackage{enumerate}
+
+
+\sectionfont{%									% Change font of \section command
+	\usefont{OT1}{phv}{b}{n}%					% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}
+	}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}				% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}			% Vertical space macro
+
+\newcommand{\MyName}[1]{
+		\Huge \usefont{OT1}{phv}{b}{n} \hfill #1 		% Name
+		\par \normalsize \normalfont}
+
+\newcommand{\MySlogan}[1]{
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1} % Slogan (optional)
+		\par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=1em\hangafter=0 		% Indentation
+		\parbox{\spacebox}{						% Box to align text
+		\textit{#1}}								% Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}					% Entry value
+
+\newcommand{\SkillsEntry}[2]{						% Same as \PersonalEntry
+		\noindent\hangindent=1em\hangafter=0 		% Indentation
+		\parbox{\spacebox}{						% Box to align text
+		\textit{#1}}								% Entry name (birth, address, etc.)
+		\hspace{1em} #2 \par}					% Entry value
+
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill 					% Study
+		\colorbox{Black}{%
+			\parbox{8em}{%
+			\hfill\color{White}#2}} \par				% Duration
+		\noindent \textit{#3} \par					% School
+		\noindent\hangindent=2em\hangafter=0  #4 	% Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{						% Same as \EducationEntry
+		\noindent \textbf{#1} \hfill 					% Jobname
+		\colorbox{Black}{%
+			\parbox{8em}{%
+			\hfill\color{White}#2}} \par				% Duration
+		\noindent \textit{#3} \par					% Company
+		\noindent\hangindent=2em\hangafter=0  #4 	% Description
+		\normalsize \par}
+
+
+
+%%% ------------------------------------------------------------
+%%% BEGIN DOCUMENT
+%%% ------------------------------------------------------------
+\begin{document}
+
+\MyName{Qiping Li}
+\MySlogan{Web Development Intern}
+
+\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Basic Information}{}
+
+\PersonalEntry{Birthday}{1991-08-20}
+\PersonalEntry{Address}{Shanghai Jiao Tong University No 800 Dongchuan RD (200240)}
+\PersonalEntry{Mobile}{15700080842}
+\PersonalEntry{Email}{\url{liqiping1991@gmail.com}}
+\PersonalEntry{Blog}{\url{chouqin.github.io}}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+
+\EducationEntry{BS}{2009-present}{Shanghai Jiao Tong University in  Computer Science and Technology}
+{During this period of time, I attended common Math and English cources and a lot of cources in Computer
+Science, getting an average grade 85 in 100. Meanwhile, I was qualified to study further in Zhe Jiang University without examination.}
+\sepspace
+
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills}{}
+
+\SkillsEntry{English Skill}{}
+\SkillsEntry{}{CET-6:562，Attended a lot of English-teaching Courses.}
+\SkillsEntry{}{}
+\SkillsEntry{Programming Skill}{}
+\SkillsEntry{}{Proficient in programming with C, C++, php, python and C$\sharp$}
+\SkillsEntry{}{Developed applications using Symfony/Django/ASP.NET/WPF}
+\SkillsEntry{}{Proficient in linux environment development and MySQL}
+\SkillsEntry{}{Good understanding of data structure and algorithms}
+
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{InternShip}{}
+
+\EducationEntry{Web Backend Engineer}{2011/07-2011/12}{ele.me}
+{Helped to develop a restaurant management system and some statics works.
+During this time, I learned a lot of knowledge about web development
+and learned some programming languages such as php, javascript, css and python.
+At the same time, I learned how to develop in Linux system and some tools such as
+git, vim.
+}
+
+\sepspace
+
+\EducationEntry{IOS Development Engineer}{2012/03-2012/06}{teambition.com}
+{Developed an IOS application prototype for teambition.com with
+the help of another colleague. I was responsible for implementing the user interface,
+including how to display information and how to interact with the user.
+At the same time, I helped to create a doc system using Node.js.
+}
+\sepspace
+
+\EducationEntry{SDET}{2011/07-2011/09}{Microsoft}
+{In the WinterOp team, I finished these four task:
+\begin{enumerate}
+        \item Developed a decryption tool to decrypt encrypted parts of the Kerberos protocol.
+        \item Improved the Protocol Test Framework to print log with color. 
+        \item Wrote PowerShell scripts to config environment.
+        \item Developed a website to display test results.
+\end{enumerate}
+}
+\sepspace
+
+\EducationEntry{Web Backend Development Engineer}{2012/09-2013/01}{ele.me}
+{Mainly responsible for statics of the new amdin system,
+designed MySQL tables and indexs, implemented Thrift service in python.
+}
+
+%%% References
+%%% ------------------------------------------------------------
+\NewPart{Self Description}{}
+\begin{itemize}
+\item Have strong ability in learning new knowledge.
+\item Stick to one thing until finishing it.
+\item Believe in the 10000 hours thoery, and in my 10000 hours of engaging.
+\item Love technology, and desired to be a hacker like Linus.
+\end{itemize}
+\end{document}
