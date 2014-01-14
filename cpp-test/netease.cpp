@@ -30,18 +30,18 @@ int main()
 
 
 //test reference variable
-//
-//void foo(const int & a)
-//{
-    //std::cout << "here" << std::endl;
-//}
 
-//int main()
-//{
-    //foo(0);
+void foo(const int & a)
+{
+    std::cout << "here" << std::endl;
+}
 
-    //return 0;
-//}
+int main()
+{
+    foo(0);
+
+    return 0;
+}
 
 // compile error: if don't `const`
 // can't cast rvalue to non-const reference

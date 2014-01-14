@@ -79,3 +79,10 @@ python py/server.py
 ```
 php php/client.php
 ```
+
+# 4. 实验总结
+
+在本次实验中，利用thrift，完成了通过PHP调用Python函数的功能，
+实现了跨语言之间的服务调用。从这个实验可以看出，
+使用thrift来实现SOA架构十分方便，
+接口也十分简单。
