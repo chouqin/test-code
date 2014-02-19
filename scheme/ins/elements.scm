@@ -1,0 +1,42 @@
+(define list1 '(1 (2 3 4 5) 6))
+(define list2 '(1 (2 3) (4 5)))
+(define list3 '(1 (2) (3 4 5) 6))
+(define list4 '(1 2 3 4 5 6))
+(define list5 '((1 2) 3))
+(define list6 '(3 (1 2)))
+(define list7 '((1 2) ()))
+
+
+(define (elements alist)
+  (if (list? alist)
+    (if (null? alist) 0
+      (+ (elements (car alist)) (elements (cdr alist)))
+      )
+    1
+    )
+  )
+
+(
+ begin
+ (display "elements of list1 is ")
+ (display (elements list1))
+ (newline)
+ (display "elements of list2 is ")
+ (display (elements list2))
+ (newline)
+ (display "elements of list3 is ")
+ (display (elements list3))
+ (newline)
+ (display "elements of list4 is ")
+ (display (elements list4))
+ (newline)
+ (display "elements of list5 is ")
+ (display (elements list5))
+ (newline)
+ (display "elements of list6 is ")
+ (display (elements list6))
+ (newline)
+ (display "elements of list7 is ")
+ (display (elements list7))
+ (newline)
+ )
